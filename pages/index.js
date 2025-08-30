@@ -164,13 +164,41 @@ export default function Home() {
         }
         @keyframes skeleton {
           0% { opacity: 0.7; }
-          100% { opacity: 1; }
-        }
-        .toast {
-          position: fixed;
-          bottom: 32px;
-          left: 50%;
-          transform: translateX(-50%);
+                    .room-card-list {
+                      gap: 18px;
+                    }
+                    .mm-card {
+                      flex-direction: column;
+                      min-height: unset;
+                      align-items: stretch;
+                    }
+                    .mm-img-wrap {
+                      width: 100%;
+                      height: 180px;
+                      border-radius: 12px 12px 0 0;
+                    }
+                    .mm-img {
+                      width: 100%;
+                      height: 180px;
+                      object-fit: cover;
+                      border-radius: 12px 12px 0 0;
+                    }
+                    .mm-details {
+                      padding: 14px 10px 8px 10px;
+                    }
+                    .mm-right {
+                      width: 100%;
+                      border-radius: 0 0 12px 12px;
+                      flex-direction: row;
+                      justify-content: space-between;
+                      align-items: center;
+                      padding: 10px;
+                    }
+                    .mm-book-btn {
+                      width: 100%;
+                      font-size: 1.1rem;
+                      padding: 12px 0;
+                    }
           background: #2d6cdf;
           color: #fff;
           padding: 14px 28px;
@@ -557,3 +585,4 @@ export default function Home() {
     </>
   );
 }
+

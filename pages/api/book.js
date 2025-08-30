@@ -22,8 +22,14 @@ export default async function handler(req, res) {
   } = req.body;
 
   try {
+    // Read service account credentials from environment variable
+    const serviceAccount = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+    if (!serviceAccount) {
+      throw new Error('Missing GOOGLE_SERVICE_ACCOUNT_JSON environment variable');
+    }
+    const credentials = JSON.parse(serviceAccount);
     const auth = new google.auth.GoogleAuth({
-      keyFile: path.join(process.cwd(), 'hotelbooking-470308-665212990a32.json'),
+      credentials,
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
     const sheets = google.sheets({ version: 'v4', auth });
@@ -66,3 +72,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+
